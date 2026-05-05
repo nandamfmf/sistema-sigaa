@@ -1,77 +1,172 @@
-html, body{
-    height: 100%;
-}
-
 body {
-    background-color: rgb(200, 219, 112);
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: linear-gradient(-45deg, #ffffff, #1E5AA8, #004A91, #ffffff);
+  font-family: 'Lucida Sans', sans-serif;
+  color: #011529;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: 1200px;
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.hamb {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.hamb .line {
+  width: 30px;
+  height: 4px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  margin: 4px 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.hamb.open .line:nth-child(1) {
+  transform: translateY(8px) rotate(46deg);
+}
+
+.hamb.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamb.open .line:nth-child(3) {
+  transform: translateY(-11px) rotate(-49deg);
+}
+
+.search-bar {
+  width: 270px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 1px solid #c2c2c2;
+  border-radius: 12px;
+}
+
+.search-button {
+  margin-left: 10px;
+  padding: 5px 12px;
+  border: none;
+  background-color: #ffffff;
+  border-radius: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+.lista-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  width: 300px;
+  height: 325px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.centralizado {
+  margin: 0 auto;
+}
+
+.list-item-dimap {
+  background-image: url(imagens/dimap.logo.webp);
+  background-position: center 15px;
+  background-size: 26%;
+  background-repeat: no-repeat;
+}
+
+.list-item-imd {
+  background-image: url(imagens/imd-ufrn.webp);
+  background-position: center -15px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+
+.list-item-image img {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  width: 80px;
+  margin-top: 90px;
+  transition: transform 0.3s ease;
+}
+
+.list-item-image img:hover {
+  transform: scale(1.15);
+}
+
+.list-item-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #004A91;
+  margin-top: 10px;
+}
+
+.list-item-materia {
+  font-size: 0.95rem;
+  color: #1E5AA8;
+  margin-top: 5px;
+}
+
+.list-item-email {
+  font-size: 0.9rem;
+  color: #003366;
+  margin-top: 5px;
+}
+
+.list-item-email::before {
+  content: "📧 ";
+}
+
+.roger {
+  height: 100px;
+}
+
+@media (min-width: 768px) {
+  .list {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 620px;
-}
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
 
-.lista-wrapper{
-    overflow-y: scroll;
-    background-color: rgb(255, 255, 255);
-    width: 40%;
-    min-width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.list-item {
-  display: flex; 
-  align-items: center;     
-  justify-content: space-between; 
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.list-item:hover{
-    background-color: #dadada;
-}
-
-.main-title {
-    color: #385555;
-}
-
-.list-item-image{
-    margin-right: 0;
-    margin-left: 0;
+  .search-button {
     display: block;
-    text-align: left;
-}
-
-div .list-item-image img{
-    border-radius: 50%;
-    width: 80px;
-    padding-right: 15px;
-}
-
-.list-item-name{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    width: 200px;
-    margin-left: 20px;
-}
-
-.list-item-email{
-    font-size: 16px;
-    margin-top: 5px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-div .list-item-action{
-    width: 10px;
-    height: 10px;
-    margin-left: auto;
-}
-
-div .list-item-action img{
-    cursor: pointer;
+  }
 }
